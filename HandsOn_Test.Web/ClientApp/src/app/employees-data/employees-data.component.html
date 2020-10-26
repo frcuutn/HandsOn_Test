@@ -1,0 +1,40 @@
+<h1>Employees Information</h1>
+
+<p></p>
+
+<form>
+  <div class="form-row">
+    <div class="col-md-6">
+      <div class="md-form form-group">
+        <input type="text" name="employeeId" [(ngModel)]="employeeId" class="form-control" placeholder="Employee ID">
+      </div>
+    </div>
+  </div>
+  <button type="submit" (click)="get()" class="btn btn-primary btn-md">Get Employees</button>
+  
+</form>
+
+<p *ngIf="isLoading"><em>Loading...</em></p>
+
+<table class='table' *ngIf="employees">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Role Name</th>
+      <th>Contract</th>
+      <th>Annual Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.roleName }}</td>
+      <td>{{ employee.contractTypeName }}</td>
+      <td>{{ employee.annualSalary | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
